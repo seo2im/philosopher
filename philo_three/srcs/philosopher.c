@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:02:43 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 17:03:03 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 17:05:40 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ static int	init_philosoper_list(t_manager *manager)
 static int	init_semaphore(t_manager *manager)
 {
 	sem_unlink("FORKS");
-	if ((manager->forks = 
+	if ((manager->forks =
 		sem_open("FORKS", O_CREAT | O_EXCL, 0644, manager->ph_num)) < 0)
 		return (ft_error("Init_semaphore : open error", ERROR));
 	sem_unlink("MESSAGE");
-	if ((manager->output = 
+	if ((manager->output =
 		sem_open("MESSAGE", O_CREAT | O_EXCL, 0644, 1)) < 0)
 		return (ft_error("Init_semaphore : open error", ERROR));
 	return (SUCCESS);

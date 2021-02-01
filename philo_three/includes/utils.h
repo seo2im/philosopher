@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:59:52 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 16:59:56 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 17:04:57 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 # define TRUE 1
 # define FALSE 0
 
-typedef int t_bool;
+typedef int	t_bool;
 
-int		ft_strlen(const char *str);
-int		ft_atoi(const char *str);
-long	ft_gettime(void);
-int		ft_write(const char *str);
-int		ft_writen(const char *str);
-char	*ft_itoa(long i);
-char	*ft_strdcat(char *s1, char *s2);
+int			ft_strlen(const char *str);
+int			ft_atoi(const char *str);
+long		ft_gettime(void);
+int			ft_write(const char *str);
+int			ft_writen(const char *str);
+char		*ft_itoa(long i);
+char		*ft_strdcat(char *s1, char *s2);
 
 #endif

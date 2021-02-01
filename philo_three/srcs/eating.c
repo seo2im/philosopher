@@ -6,13 +6,13 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:00:01 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 17:00:10 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 17:05:03 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosoper.h"
 
-int eating(t_ph *philosoper)
+int	eating(t_ph *philosoper)
 {
 	sem_wait(philosoper->live);
 	philosoper->dead_limit = ft_gettime()

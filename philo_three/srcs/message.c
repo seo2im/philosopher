@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:02:25 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 17:02:34 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 17:05:30 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	print_state(t_ph *philosoper, int time)
 {
 	char	*time_msg;
 	char	*id;
-	
+
 	if (!(time_msg = ft_itoa(time)))
 		return (ft_error("Print_time : malloc error", ERROR));
 	ft_write(time_msg);
@@ -33,7 +33,7 @@ static int	print_state(t_ph *philosoper, int time)
 int			message(t_ph *philosoper, int kind)
 {
 	sem_wait(philosoper->manager->output);
-	if ((print_state(philosoper, 
+	if ((print_state(philosoper,
 			ft_gettime() - philosoper->manager->start_time)) == ERROR)
 		return (ft_error("Print_time : malloc error", ERROR));
 	if (kind == EAT)
