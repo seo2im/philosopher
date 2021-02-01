@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:47:23 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 16:47:38 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 16:55:09 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	*dead_check(void *arg)
 	}
 }
 
-static void *eat_check(void *arg)
+static void	*eat_check(void *arg)
 {
 	t_ph	*philosoper;
 
@@ -52,7 +52,7 @@ static void *eat_check(void *arg)
 	}
 }
 
-static void *routine(void *arg)
+static void	*routine(void *arg)
 {
 	t_ph		*philosoper;
 	pthread_t	pid;
@@ -95,7 +95,7 @@ static int	process(t_manager *manager)
 	return (SUCCESS);
 }
 
-int main(int argc, char *argv[])
+int			main(int argc, char *argv[])
 {
 	t_manager manager;
 

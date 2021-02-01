@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:47:46 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 16:47:47 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 16:56:16 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,17 @@ static int	init_philosoper_list(t_manager *manager)
 static int	init_semaphore(t_manager *manager)
 {
 	sem_unlink("FORKS");
-	if ((manager->forks = 
+	if ((manager->forks =
 		sem_open("FORKS", O_CREAT | O_EXCL, 0644, manager->ph_num)) < 0)
 		return (ft_error("Init_semaphore : open error", ERROR));
 	sem_unlink("MESSAGE");
-	if ((manager->output = 
+	if ((manager->output =
 		sem_open("MESSAGE", O_CREAT | O_EXCL, 0644, 1)) < 0)
 		return (ft_error("Init_semaphore : open error", ERROR));
 	return (SUCCESS);
 }
 
-int 		init_manager(t_manager *manager, char *argv[], int argc)
+int			init_manager(t_manager *manager, char *argv[], int argc)
 {
 	if ((manager->ph_num = ft_atoi(argv[0])) < 0)
 		return (ft_error("Init_manager : argv[0] under 0", ERROR));
@@ -91,7 +91,7 @@ int 		init_manager(t_manager *manager, char *argv[], int argc)
 	return (SUCCESS);
 }
 
-int		clear(t_manager *manager)
+int			clear(t_manager *manager)
 {
 	char	*name;
 	int		i;

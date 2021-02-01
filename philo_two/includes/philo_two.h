@@ -6,12 +6,12 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:48:14 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 16:48:16 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 16:52:22 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_ONE_H
-# define PHILO_ONE_H
+#ifndef PHILO_TWO_H
+# define PHILO_TWO_H
 # include "philosoper.h"
 
 #endif
