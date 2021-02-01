@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/01 16:33:28 by seolim            #+#    #+#             */
+/*   Updated: 2021/02/01 16:34:00 by seolim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_one.h"
 
 static void	*dead_check(void *arg)
@@ -21,7 +33,7 @@ static void	*dead_check(void *arg)
 	}
 }
 
-static void *eat_check(void *arg)
+static void	*eat_check(void *arg)
 {
 	t_ph	*philosoper;
 
@@ -40,7 +52,7 @@ static void *eat_check(void *arg)
 	}
 }
 
-static void *routine(void *arg)
+static void	*routine(void *arg)
 {
 	t_ph		*philosoper;
 	pthread_t	pid;
@@ -83,7 +95,7 @@ static int	process(t_manager *manager)
 	return (SUCCESS);
 }
 
-int main(int argc, char *argv[])
+int			main(int argc, char *argv[])
 {
 	t_manager manager;
 

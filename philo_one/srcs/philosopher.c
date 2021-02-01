@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosopher.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/01 16:34:18 by seolim            #+#    #+#             */
+/*   Updated: 2021/02/01 16:34:39 by seolim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosoper.h"
 
 static int	init_philosoper_list(t_manager *manager)
@@ -35,7 +47,7 @@ static int	init_mutex(t_manager *manager)
 	return (SUCCESS);
 }
 
-int 		init_manager(t_manager *manager, char *argv[], int argc)
+int			init_manager(t_manager *manager, char *argv[], int argc)
 {
 	if ((manager->ph_num = ft_atoi(argv[0])) < 0)
 		return (ft_error("Init_manager : argv[0] under 0", ERROR));
@@ -62,7 +74,7 @@ int 		init_manager(t_manager *manager, char *argv[], int argc)
 	return (SUCCESS);
 }
 
-int		clear(t_manager *manager)
+int			clear(t_manager *manager)
 {
 	int i;
 
