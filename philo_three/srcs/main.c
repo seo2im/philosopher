@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:01:58 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 17:02:13 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 18:02:28 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ static int	process(t_manager *manager)
 	return (SUCCESS);
 }
 
+#include <stdio.h>
+
 int			main(int argc, char *argv[])
 {
 	t_manager manager;
@@ -110,6 +112,8 @@ int			main(int argc, char *argv[])
 	if ((process(&manager) == ERROR))
 		return (ft_error("Main Error : process error", 1));
 	while (manager.end_count != manager.ph_num)
-		;
+	{
+		printf("%d %d\n", manager.end_count, manager.ph_num);
+	}
 	clear(&manager);
 }
