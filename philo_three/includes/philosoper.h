@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:59:39 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 16:59:48 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 17:25:02 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 # define DEAD 5
 # define END 6
 
-typedef struct		s_ph t_ph;
-
 typedef struct		s_manager
 {
 	int				ph_num;
@@ -35,7 +33,7 @@ typedef struct		s_manager
 	int				must_eat_num;
 
 	long			start_time;
-	t_ph			*ph_list;
+	struct s_ph		*ph_list;
 
 	sem_t			*forks;
 	sem_t			*output;
@@ -61,6 +59,6 @@ int					put_fork(t_ph *philosoper);
 int					message(t_ph *philosoper, int kind);
 int					init_manager(t_manager *manager, char *argv[], int argc);
 int					clear(t_manager *manager);
-int					eating(t_ph *philosoper);
+void				eating(t_ph *philosoper);
 
 #endif
