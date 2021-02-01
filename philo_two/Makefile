@@ -1,21 +1,34 @@
-TARGET = philo_two
-SRCS = ./srcs/*.c ./utils/*.c ./error/*.c
-OBJS = *.o
+NAME = philo_two
+SRCS = ./srcs/eating.c \
+		./srcs/fork.c \
+		./srcs/message.c \
+		./srcs/philosopher.c \
+		./srcs/test.c \
+		./utils/ft_atoi.c \
+		./utils/ft_gettime.c \
+		./utils/ft_itoa.c \
+		./utils/ft_strlen.c \
+		./utils/ft_write.c \
+		./error/ft_error.c \
+		./srcs/main.c
+
+OBJS = $(SRCS:.c=.o)
 CC = gcc
 FLAG = -Wall -Werror -Wextra
 HEADER = -I ./includes
 
-all : $(TARGET)
+all : $(NAME)
 
-$(TARGET) : $(OBJS)
-	$(CC) -o $(TARGET) $(SRCS) $(HEADER) -lpthread
+$(NAME) : $(OBJS)
+	$(CC) $(FLAG) -o $(NAME) $(OBJS) $(HEADER) -lpthread
 
-$(OBJS) : $(SRCS)
-	$(CC) -c $(SRCS) $(HEADER) -lpthread
+$(OBJS) : %.o : %.c
+	$(CC) $(FLAG) -c $< -o $@ $(HEADER) > /dev/null
 
 clean :
 	rm $(OBJS)
 
 fclean : clean
-	rm $(TARGET)
+	rm $(NAME)
 
+re : fclean all

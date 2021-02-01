@@ -8,5 +8,5 @@ int eating(t_ph *philosoper)
 	philosoper->dead_limit = ft_gettime() + philosoper->manager->dead_time;
 	philosoper->eat_count++;
 	pthread_mutex_unlock(&philosoper->live);
-
+	return (1);
 }
