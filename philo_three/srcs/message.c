@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:02:25 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 17:48:56 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 17:51:48 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	print_state(t_ph *philosoper, int time)
 {
 	char	*time_msg;
 	char	*id;
-	
+
 	if (time < 0 || time > 1000000)
 		return (ERROR);
 	if (!(time_msg = ft_itoa(time)))

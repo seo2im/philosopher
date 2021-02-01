@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:48:19 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 17:25:15 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 17:51:59 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct		s_ph
 	long			dead_limit;
 	int				eat_count;
 	int				is_end;
-	
+
 	t_manager		*manager;
 	sem_t			*live;
 }					t_ph;
