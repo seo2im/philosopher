@@ -1,6 +1,7 @@
 #ifndef PHILOSOPER_H
 # define PHILOSOPER_H
 # include <sys/stat.h>
+# include <pthread.h>
 # include <semaphore.h>
 # include <fcntl.h>
 # include "utils.h"
