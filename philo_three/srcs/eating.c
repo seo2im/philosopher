@@ -8,4 +8,5 @@ int eating(t_ph *philosoper)
 	usleep(philosoper->manager->eat_time * 1000);
 	philosoper->eat_count++;
 	sem_post(philosoper->live);
+	return (1);
 }
