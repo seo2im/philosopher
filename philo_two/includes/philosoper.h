@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosoper.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/01 16:48:19 by seolim            #+#    #+#             */
+/*   Updated: 2021/02/01 16:48:26 by seolim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILOSOPER_H
 # define PHILOSOPER_H
 # include <sys/stat.h>
@@ -5,13 +17,12 @@
 # include <semaphore.h>
 # include <fcntl.h>
 # include "utils.h"
-
-#define EAT 1
-#define SLEEP 2
-#define THINK 3
-#define FORK 4
-#define DEAD 5
-#define END 6
+# define EAT 1
+# define SLEEP 2
+# define THINK 3
+# define FORK 4
+# define DEAD 5
+# define END 6
 
 typedef struct		s_ph t_ph;
 
