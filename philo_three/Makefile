@@ -1,4 +1,4 @@
-NAME = philo_t
+NAME = philo_three
 SRCS = ./srcs/eating.c \
 		./srcs/fork.c \
 		./srcs/message.c \

@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:47:41 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 17:49:20 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 17:56:56 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static int	print_state(t_ph *philosoper, int time)
 	char	*time_msg;
 	char	*id;
 
-	if (time < 0 || time > 1000000)
-		return (ERROR);
 	if (!(time_msg = ft_itoa(time)))
 		return (ft_error("Print_time : malloc error", ERROR));
 	ft_write(time_msg);
