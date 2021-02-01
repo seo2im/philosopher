@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/01 17:01:58 by seolim            #+#    #+#             */
+/*   Updated: 2021/02/01 17:02:13 by seolim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_three.h"
 
 static void	*dead_check(void *arg)
@@ -87,7 +99,7 @@ static int	process(t_manager *manager)
 	return (SUCCESS);
 }
 
-int main(int argc, char *argv[])
+int			main(int argc, char *argv[])
 {
 	t_manager manager;
 
