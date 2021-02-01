@@ -1,6 +1,7 @@
 #ifndef ERROR_H
 # define ERROR_H
 # include <unistd.h>
+# include <errno.h>
 
 #define SUCCESS 1
 #define FAIL 0
