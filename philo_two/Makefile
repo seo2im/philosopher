@@ -3,10 +3,10 @@ SRCS = ./srcs/eating.c \
 		./srcs/fork.c \
 		./srcs/message.c \
 		./srcs/philosopher.c \
-		./srcs/test.c \
 		./utils/ft_atoi.c \
 		./utils/ft_gettime.c \
 		./utils/ft_itoa.c \
+		./utils/ft_strdcat.c \
 		./utils/ft_strlen.c \
 		./utils/ft_write.c \
 		./error/ft_error.c \
