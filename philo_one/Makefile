@@ -3,7 +3,6 @@ SRCS = ./srcs/eating.c \
 		./srcs/fork.c \
 		./srcs/message.c \
 		./srcs/philosopher.c \
-		./srcs/test.c \
 		./utils/ft_atoi.c \
 		./utils/ft_gettime.c \
 		./utils/ft_itoa.c \

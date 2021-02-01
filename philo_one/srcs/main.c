@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:33:28 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 16:34:00 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/01 16:41:43 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	*routine(void *arg)
 		if (pthread_create(&pid, NULL, &eat_check, arg) != 0)
 			return ((void*)1);
 		pthread_detach(pid);
-	}	
+	}
 	while (!philosoper->is_end)
 	{
 		if (!get_fork(philosoper))
@@ -82,13 +82,14 @@ static int	process(t_manager *manager)
 {
 	pthread_t	pid;
 	int			i;
-	
+
 	manager->start_time = ft_gettime();
 	i = -1;
 	while (++i < manager->ph_num)
 	{
 		manager->ph_list[i].dead_limit = ft_gettime() + manager->dead_time;
-		if (pthread_create(&pid, NULL, &routine, (void *)(&manager->ph_list[i])))
+		if (pthread_create(&pid, NULL, &routine,
+			(void *)(&manager->ph_list[i])))
 			return (ft_error("Process : pid error", ERROR));
 		pthread_detach(pid);
 	}
