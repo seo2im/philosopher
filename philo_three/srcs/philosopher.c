@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:02:43 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/02 16:43:06 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/02 17:03:35 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static int	init_philosoper_list(t_manager *manager)
 		if ((list[i].live = sem_open(name, O_CREAT | O_EXCL, 0644, 1))
 			== SEM_FAILED)
 			return (ft_error("Init_philo_list : open error", ERROR));
+		free(name);
 	}
 	manager->ph_list = list;
 	return (SUCCESS);
