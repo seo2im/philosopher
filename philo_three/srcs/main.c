@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:01:58 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 18:14:28 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/02 16:27:10 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ static int	process(t_manager *manager)
 			exit(0);
 		}
 	}
-	waitpid(manager->ph_list[i].pid, NULL, 0);
 	return (SUCCESS);
 }
 
@@ -112,5 +111,8 @@ int			main(int argc, char *argv[])
 		return (ft_error("Main Error : init manager error", 1));
 	if ((process(&manager) == ERROR))
 		return (ft_error("Main Error : process error", 1));
+	int i = -1;
+	while (++i < manager.ph_num)
+		waitpid(manager.ph_list[i].pid, NULL, 0);
 	clear(&manager);
 }

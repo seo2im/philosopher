@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:47:46 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 16:56:16 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/02 16:20:00 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	init_philosoper_list(t_manager *manager)
 		if (!(name = semaphore_name(i)))
 			return (ft_error("Init_philo_list : malloc error", ERROR));
 		sem_unlink(name);
-		if ((list[i].live = sem_open(name, O_CREAT | O_EXCL, 0644, 1)) < 0)
+		if ((list[i].live = sem_open(name, O_CREAT | O_EXCL, 0644, 1)) == SEM_FAILED)
 			return (ft_error("Init_philo_list : open error", ERROR));
 	}
 	manager->ph_list = list;
@@ -55,11 +55,11 @@ static int	init_semaphore(t_manager *manager)
 {
 	sem_unlink("FORKS");
 	if ((manager->forks =
-		sem_open("FORKS", O_CREAT | O_EXCL, 0644, manager->ph_num)) < 0)
+		sem_open("FORKS", O_CREAT | O_EXCL, 0644, manager->ph_num)) == SEM_FAILED)
 		return (ft_error("Init_semaphore : open error", ERROR));
 	sem_unlink("MESSAGE");
 	if ((manager->output =
-		sem_open("MESSAGE", O_CREAT | O_EXCL, 0644, 1)) < 0)
+		sem_open("MESSAGE", O_CREAT | O_EXCL, 0644, 1)) == SEM_FAILED)
 		return (ft_error("Init_semaphore : open error", ERROR));
 	return (SUCCESS);
 }

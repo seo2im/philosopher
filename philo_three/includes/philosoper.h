@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 16:59:39 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/01 17:51:39 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/02 16:26:48 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHILOSOPER_H
 # include <pthread.h>
 # include <semaphore.h>
+# include <sys/wait.h>
 # include <fcntl.h>
 # include <signal.h>
 # include "utils.h"
