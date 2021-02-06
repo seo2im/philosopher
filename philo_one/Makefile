@@ -1,33 +1,34 @@
 NAME = philo_one
-SRCS = ./srcs/eating.c \
-		./srcs/fork.c \
-		./srcs/message.c \
-		./srcs/philosopher.c \
-		./utils/ft_atoi.c \
-		./utils/ft_gettime.c \
-		./utils/ft_itoa.c \
-		./utils/ft_strlen.c \
-		./utils/ft_write.c \
-		./error/ft_error.c \
-		./srcs/main.c
+SRCS = ./SRCS/main.c \
+		./SRCS/setup.c \
+		./SRCS/message.c \
+		./SRCS/process.c \
+		./UTILS/ft_atoi.c \
+		./UTILS/ft_error.c \
+		./UTILS/ft_itoa.c \
+		./UTILS/ft_strlen.c \
+		./UTILS/ft_write.c \
+		./UTILS/ft_write_n.c \
+		./UTILS/ft_time.c \
 
+		
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 FLAG = -Wall -Werror -Wextra
-HEADER = -I ./includes
+HEADER = -I ./HEADER
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(FLAG) -o $(NAME) $(OBJS) $(HEADER) -lpthread
+	$(CC) -o $(NAME) $(OBJS) $(HEADER) -lpthread
 
 $(OBJS) : %.o : %.c
-	$(CC) $(FLAG) -c $< -o $@ $(HEADER) > /dev/null
+	$(CC) -c $< -o $@ $(HEADER) > /dev/null
 
 clean :
-	rm $(OBJS)
+	rm -f $(OBJS)
 
 fclean : clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re : fclean all
