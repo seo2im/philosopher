@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:19:11 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 23:24:44 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:12:49 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int				set_info(t_manager *manager, int argc, char *argv[])
 	info->sleep_time = ft_atoi(argv[4]);
 	if (argc == 6)
 		info->eat_must = ft_atoi(argv[5]);
-	else 
+	else
 		info->eat_must = -1;
 	if (!(info->start_time = malloc(sizeof(struct timeval))))
 	{

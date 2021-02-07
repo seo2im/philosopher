@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 23:23:16 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 18:06:03 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:12:40 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ int				set_philosophers(t_manager *manager)
 {
 	t_ph	**phs;
 	int		i;
-	
-	if (!(phs = malloc(sizeof(t_ph *) *(manager->info->num_of_ph + 1))))
+
+	if (!(phs = malloc(sizeof(t_ph *) * (manager->info->num_of_ph + 1))))
 		return (ERROR);
 	i = -1;
 	while (++i < manager->info->num_of_ph)
 	{
-		if(!(phs[i] = init_ph(manager, i)))
+		if (!(phs[i] = init_ph(manager, i)))
 			return (ERROR);
 	}
 	phs[i] = NULL;

@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 23:18:14 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 17:42:24 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:13:06 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	sem_free(t_manager *manager)
 
 void	clear_manager(t_manager *manager)
 {
-	
 	if (manager->info)
 	{
 		free(manager->info->start_time);

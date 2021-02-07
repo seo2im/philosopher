@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 16:24:38 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 23:32:04 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:14:08 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,10 @@ int		process(t_manager *manager)
 	while (phs[++i])
 	{
 		if (!(phs[i]->info = copy_info(manager->info)))
-			return (ERROR);	
+			return (ERROR);
 		phs[i]->last_meal_time->tv_sec = phs[i]->info->start_time->tv_sec;
 		phs[i]->last_meal_time->tv_usec = phs[i]->info->start_time->tv_usec;
 		phs[i]->num_of_eat = 0;
-		
 		if (pthread_create(phs[i]->thread, NULL, &routine, phs[i]))
 			return (ERROR);
 	}

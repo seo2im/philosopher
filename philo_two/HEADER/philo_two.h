@@ -6,12 +6,12 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:16:19 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 23:29:06 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:13:33 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHIO_TWO_H
-# define PHIO_TWO_H
+#ifndef PHILO_TWO_H
+# define PHILO_TWO_H
 
 # include "utils.h"
 
