@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 14:20:06 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 15:07:46 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 17:04:42 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	message(t_ph *ph, char *str, struct timeval *current)
 
 	id_str = ft_itoa(ph->id);
 	time_str = ft_itoa(ft_time(current) - ft_time(ph->info->start_time));
-	pthread_mutex_lock(ph->message);
+	//pthread_mutex_lock(ph->message);
 	ft_write(time_str);
 	ft_write("ms phiosopher ");
 	ft_write(id_str);
@@ -27,5 +27,5 @@ void	message(t_ph *ph, char *str, struct timeval *current)
 	ft_write_n(str);
 	free(id_str);
 	free(time_str);
-	pthread_mutex_unlock(ph->message);
+	//pthread_mutex_unlock(ph->message);
 }
