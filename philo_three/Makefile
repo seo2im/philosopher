@@ -14,6 +14,7 @@ SRCS = ./SRCS/main.c \
 		./UTILS/ft_write.c \
 		./UTILS/ft_write_n.c \
 		./UTILS/ft_time.c \
+		./UTILS/ft_usleep.c \
 
 		
 OBJS = $(SRCS:.c=.o)

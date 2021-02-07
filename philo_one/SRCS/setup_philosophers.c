@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 22:29:09 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 16:27:59 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 17:56:05 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void		*ph_free(t_ph *ph)
 	if (ph->thread)
 		free(ph->thread);
 	if (ph->last_meal_time)
-		free(ph->thread);
+		free(ph->last_meal_time);
 	free(ph);
 	return (NULL);
 }

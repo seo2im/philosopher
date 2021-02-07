@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 22:23:43 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 17:22:44 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:02:08 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ static void	free_one(t_ph *ph)
 	}
 	if (ph->last_meal_time)
 		free(ph->last_meal_time);
-	if (ph->thread)
-		free(ph->thread);
 	if (ph->last_meal_mutex)
 	{
 		pthread_mutex_destroy(ph->last_meal_mutex);
@@ -44,6 +42,8 @@ void		ft_ph_free(t_ph **phs)
 			free(phs[i]->left_fork->mutex);
 			free(phs[i]->left_fork);
 		}
+		if (phs[i]->thread)
+			free(phs[i]->thread);
 		free(phs[i]);
 	}
 	free(phs);
