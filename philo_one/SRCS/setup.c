@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:19:11 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 16:23:40 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/06 22:53:51 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ void			change_order(t_manager *manager)
 	phs[i] = NULL;
 }
 
-/*
-*	if error find (ex> string input...), not care it
-*/
 int				set_info(t_manager *manager, int argc, char *argv[])
 {
 	t_info	*info;
@@ -84,96 +81,16 @@ t_info			*copy_info(t_info *src)
 	return (dest);
 }
 
-static t_ph		*init_ph(t_manager *manager, int i)
+int				init_manager(t_manager *manager)
 {
-	t_ph	*ph;
-
-	ph = NULL;
-	if (!(ph = malloc(sizeof(t_ph))))
-		return (NULL);
-	ph->id = i;
-	ph->info = NULL;
-	ph->thread = NULL;
-	ph->num_of_eat = 0;
-	if (!(ph->last_meal_time = malloc(sizeof(struct timeval))))
-	{
-		free(ph);
-		return (NULL);
-	}
-	if (!(ph->thread = malloc(sizeof(pthread_t))))
-	{
-		free(ph->last_meal_time);
-		free(ph);
-		return (NULL);
-	}
-	if (!(ph->last_meal_mutex = malloc(sizeof(pthread_mutex_t))))
-	{
-		free(ph->last_meal_time);
-		free(ph->thread);
-		free(ph);
-		return (NULL);
-	}
-	ph->message = manager->message;
-	ph->info = NULL;
-	return (ph);
-}
-
-static t_fork	*init_fork()
-{
-	t_fork	*fork;
-
-	if (!(fork = malloc(sizeof(t_fork))))
-		return (NULL);
-	if (!(fork->mutex = malloc(sizeof(pthread_mutex_t))))
-	{
-		free(fork);
-		return (NULL);
-	}
-	if (pthread_mutex_init(fork->mutex, NULL))
-	{
-		free(fork->mutex);
-		free(fork);
-		return (NULL);
-	}
-	return (fork);
-}
-
-void			set_fork(t_ph **phs)
-{
-	t_fork	*fork;
-	int		i;
-
-	fork = init_fork();
-	fork->nb_last = 0;
-	i = -1;
-	while (phs[++i])
-	{
-		phs[i]->left_fork = fork;
-		if (phs[i + 1] != NULL)
-		{
-			fork = init_fork();
-			phs[i]->right_fork = fork;
-		}
-		else
-			phs[i]->right_fork = phs[0]->left_fork;
-	}
-}
-
-int				set_philosophers(t_manager *manager)
-{
-	t_ph	**phs;
-	int		i;
-	
-	if (!(phs = malloc(sizeof(t_ph *) *(manager->info->num_of_ph + 1))))
+	manager->info = NULL;
+	manager->phs = NULL;
+	if (!(manager->message = malloc(sizeof(pthread_mutex_t))))
 		return (ERROR);
-	i = -1;
-	while (++i < manager->info->num_of_ph)
+	if (pthread_mutex_init(manager->message, NULL))
 	{
-		if(!(phs[i] = init_ph(manager, i)))
-			return (ERROR);
+		free(manager->message);
+		return (ERROR);
 	}
-	phs[i] = NULL;
-	set_fork(phs);
-	manager->phs = phs;
-	return (SUCCESS);	
+	return (SUCCESS);
 }

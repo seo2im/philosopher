@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_two.h                                        :+:      :+:    :+:   */
+/*   philo_three.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:16:19 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 18:19:42 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/06 23:40:20 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHIO_ONE_H
-# define PHIO_ONE_H
+#ifndef PHIO_THREE_H
+# define PHIO_THREE_H
 
 # include "utils.h"
 
@@ -22,5 +22,9 @@ void		message(t_ph *ph, char *str, struct timeval *current);
 void		change_order(t_manager *manager);
 int			process(t_manager *manager);
 int			init_semaphore(t_manager *manager);
+int			init_manager(t_manager *manager);
+void		clear_manager(t_manager *manager);
+int			eat(t_ph *ph);
+int			take_fork(t_ph *ph);
 
 #endif

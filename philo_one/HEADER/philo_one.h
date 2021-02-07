@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:16:19 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/05 16:54:09 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/06 23:07:16 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,10 @@ t_info		*copy_info(t_info *src);
 void		message(t_ph *ph, char *str, struct timeval *current);
 void		change_order(t_manager *manager);
 int			process(t_manager *manager);
+int			init_manager(t_manager *manager);
+void		clear_manager(t_manager *manager);
+void		set_fork(t_ph **phs);
+int			take_fork(t_ph *ph);
+int			eat(t_ph *ph);
 
 #endif

@@ -3,6 +3,10 @@ SRCS = ./SRCS/main.c \
 		./SRCS/setup.c \
 		./SRCS/message.c \
 		./SRCS/process.c \
+		./SRCS/eating.c \
+		./SRCS/setup_sem.c \
+		./SRCS/setup_philosophers.c \
+		./SRCS/clear.c \
 		./UTILS/ft_atoi.c \
 		./UTILS/ft_error.c \
 		./UTILS/ft_itoa.c \

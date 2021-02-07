@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 14:07:31 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 23:37:17 by seolim           ###   ########.fr       */
+/*   Created: 2021/02/06 23:37:23 by seolim            #+#    #+#             */
+/*   Updated: 2021/02/06 23:37:28 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_three.h"
 
-int		main(int argc, char *argv[])
+void	ft_ph_free(t_ph **phs)
 {
-	t_manager	manager;
+	int	i;
 
-if (argc != 5 && argc != 6)
-		return (ft_error("ARGV ERROR : Not compelete argv", 1));
-	if (!init_manager(&manager))
-		return (ft_error("MALLOC ERROR : timeval malloc error", 1));
-	set_info(&manager, argc, argv);
-	set_philosophers(&manager);
-	init_semaphore(&manager);
-	if (!process(&manager))
-		ft_error("PROCESS ERROR : something wrong in process", 1);
-	clear_manager(&manager);
+	i = -1;
+	while (phs[++i])
+	{
+		if (phs[i]->info)
+			free(phs[i]->info);
+		free(phs[i]);
+	}
+	free(phs);
+}
+
+void	clear_manager(t_manager *manager)
+{
+	if (manager->info)
+		free(manager->info);
+	if (manager->phs)
+		ft_ph_free(manager->phs);
 }
