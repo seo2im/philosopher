@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 16:24:38 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 18:14:08 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:26:32 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*routine(void *argv)
 	return (NULL);
 }
 
-int		sem_locking(t_manager *manager)
+void	sem_locking(t_manager *manager)
 {
 	int		c;
 	t_ph	**phs;

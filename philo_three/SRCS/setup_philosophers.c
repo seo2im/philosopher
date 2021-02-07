@@ -6,13 +6,13 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 23:35:38 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 18:18:30 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:25:50 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_three.h"
 
-static t_ph		*init_ph(t_manager *manager, int i)
+static t_ph		*init_ph(int i)
 {
 	t_ph	*ph;
 
@@ -40,7 +40,7 @@ int				set_philosophers(t_manager *manager)
 	i = -1;
 	while (++i < manager->info->num_of_ph)
 	{
-		if (!(phs[i] = init_ph(manager, i)))
+		if (!(phs[i] = init_ph(i)))
 			return (ERROR);
 	}
 	phs[i] = NULL;

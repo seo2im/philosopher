@@ -25,10 +25,10 @@ HEADER = -I ./HEADER
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) $(HEADER) -lpthread
+	$(CC) $(FLAG) -o $(NAME) $(OBJS) $(HEADER) -lpthread
 
 $(OBJS) : %.o : %.c
-	$(CC) -c $< -o $@ $(HEADER) > /dev/null
+	$(CC) $(FLAG) -c $< -o $@ $(HEADER) > /dev/null
 
 clean :
 	rm -f $(OBJS)

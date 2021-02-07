@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 23:23:16 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 18:12:40 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:27:03 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		*ph_free(t_ph *ph)
 	return (NULL);
 }
 
-static t_ph		*init_ph(t_manager *manager, int i)
+static t_ph		*init_ph(int i)
 {
 	t_ph	*ph;
 
@@ -55,7 +55,7 @@ int				set_philosophers(t_manager *manager)
 	i = -1;
 	while (++i < manager->info->num_of_ph)
 	{
-		if (!(phs[i] = init_ph(manager, i)))
+		if (!(phs[i] = init_ph(i)))
 			return (ERROR);
 	}
 	phs[i] = NULL;
