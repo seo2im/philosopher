@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:19:11 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 18:12:49 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:45:36 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ int				set_info(t_manager *manager, int argc, char *argv[])
 		return (ERROR);
 	}
 	manager->info = info;
-	manager->message = NULL;
-	manager->forks = NULL;
-	manager->eat_available = NULL;
 	return (SUCCESS);
 }
 
@@ -63,5 +60,8 @@ int				init_manager(t_manager *manager)
 {
 	manager->info = NULL;
 	manager->phs = NULL;
+	manager->message = NULL;
+	manager->forks = NULL;
+	manager->eat_available = NULL;
 	return (SUCCESS);
 }
