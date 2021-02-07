@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 23:18:14 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 18:53:59 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 19:13:36 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	ft_ph_free(t_ph **phs)
 			free(phs[i]->info->start_time);
 			free(phs[i]->info);
 		}
-		if (phs[i]->last_meal_time)
-			free(phs[i]->last_meal_time);
 		if (phs[i]->thread)
 			free(phs[i]->thread);
 		free(phs[i]);
