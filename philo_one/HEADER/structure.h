@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 13:52:51 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/05 17:16:07 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:29:37 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_info
 typedef struct		s_fork
 {
 	pthread_mutex_t	*mutex;
-	int				nb_last; //What is this?
+	int				nb_last;
 }					t_fork;
 
 typedef struct		s_ph
@@ -38,7 +38,7 @@ typedef struct		s_ph
 	pthread_t		*thread;
 	t_fork			*left_fork;
 	t_fork			*right_fork;
-	pthread_mutex_t	*last_meal_mutex; //What is this?
+	pthread_mutex_t	*last_meal_mutex;
 	struct timeval	*last_meal_time;
 	pthread_mutex_t	*message;
 	int				num_of_eat;
@@ -50,6 +50,5 @@ typedef struct		s_manager
 	t_ph			**phs;
 	pthread_mutex_t	*message;
 }					t_manager;
-
 
 #endif

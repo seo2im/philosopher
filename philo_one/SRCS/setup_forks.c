@@ -6,13 +6,13 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 22:29:37 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 23:06:24 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:27:07 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-static t_fork	*init_fork()
+static t_fork	*init_fork(void)
 {
 	t_fork	*fork;
 

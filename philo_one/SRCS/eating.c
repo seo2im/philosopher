@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 22:57:33 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 22:57:58 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:29:51 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		eat_check(t_ph *ph)
 {
 	struct timeval	current;
 	int				ret;
-	
+
 	gettimeofday(&current, NULL);
 	pthread_mutex_lock(ph->last_meal_mutex);
 	if (!ph->last_meal_time ||

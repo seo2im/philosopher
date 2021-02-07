@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 16:24:38 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 23:16:10 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:29:24 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static	void	mutex_locking(t_manager *manager)
 			++phs;
 			phs = !(c *= 0) ? manager->phs : NULL;
 		}
-	}	
+	}
 }
 
 int				wait_process(t_manager *manager)
@@ -76,7 +76,7 @@ int				process(t_manager *manager)
 	while (phs[++i])
 	{
 		if (!(phs[i]->info = copy_info(manager->info)))
-			return (ERROR);	
+			return (ERROR);
 		phs[i]->left_fork->nb_last = 0;
 		phs[i]->right_fork->nb_last = 0;
 		phs[i]->last_meal_time->tv_sec = phs[i]->info->start_time->tv_sec;

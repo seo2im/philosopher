@@ -6,13 +6,12 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:16:19 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 23:07:16 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:28:47 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHIO_ONE_H
-# define PHIO_ONE_H
-
+#ifndef PHILO_ONE_H
+# define PHILO_ONE_H
 # include "utils.h"
 
 int			set_info(t_manager *manager, int argc, char *argv[]);
