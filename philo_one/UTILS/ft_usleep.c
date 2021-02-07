@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_usleep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 13:52:10 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 17:08:08 by seolim           ###   ########.fr       */
+/*   Created: 2021/02/07 17:06:57 by seolim            #+#    #+#             */
+/*   Updated: 2021/02/07 17:07:12 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "utils.h"
 
-# include "base.h"
-# include "structure.h"
+void	ft_usleep(unsigned int n)
+{
+	struct timeval	start;
+	struct timeval	step;
 
-int		ft_strlen(char *str);
-int		ft_error(char *message, int code);
-int		ft_write(char *str);
-int		ft_write_n(char *str);
-int		ft_atoi(const char *str);
-char	*ft_itoa(long n);
-long	ft_time(struct timeval *time);
-void	ft_usleep(unsigned int n);
-
-#endif
+	gettimeofday(&start, NULL);
+	while (1)
+	{
+		usleep(50);
+		gettimeofday(&step, NULL);
+		if ((size_t)(((size_t)(step.tv_sec - start.tv_sec)) * 1000000 +
+((size_t)(step.tv_usec - start.tv_usec))) > n)
+			break ;
+	}
+}
