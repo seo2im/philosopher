@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 23:38:10 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 18:03:29 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:20:05 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		eat_check(t_ph *ph)
 {
 	struct timeval	current;
 	int				ret;
-	
+
 	gettimeofday(&current, NULL);
 	if (!ph->last_meal_time ||
 		ft_time(&current) - ft_time(ph->last_meal_time) > ph->info->dead_time)

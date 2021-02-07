@@ -6,12 +6,12 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:16:19 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 23:40:20 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:19:56 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHIO_THREE_H
-# define PHIO_THREE_H
+#ifndef PHILO_THREE_H
+# define PHILO_THREE_H
 
 # include "utils.h"
 

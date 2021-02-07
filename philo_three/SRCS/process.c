@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 16:24:38 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/06 23:38:47 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 18:19:31 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		wait_process(t_manager *manager)
 	while (!state && num < manager->info->num_of_ph)
 	{
 		waitpid(-1, &state, 0);
-		num++;	
+		num++;
 	}
 	if (state)
 	{
@@ -62,7 +62,7 @@ int		process(t_manager *manager)
 	while (phs[++i])
 	{
 		if (!(phs[i]->info = copy_info(manager->info)))
-			return (ERROR);	
+			return (ERROR);
 		phs[i]->last_meal_time->tv_sec = phs[i]->info->start_time->tv_sec;
 		phs[i]->last_meal_time->tv_usec = phs[i]->info->start_time->tv_usec;
 		phs[i]->num_of_eat = 0;
