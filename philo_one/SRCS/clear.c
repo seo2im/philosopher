@@ -6,13 +6,13 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 22:23:43 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 17:15:38 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 17:22:44 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-static void free_one(t_ph *ph)
+static void	free_one(t_ph *ph)
 {
 	if (ph->info)
 	{
