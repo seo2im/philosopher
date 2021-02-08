@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 22:57:33 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 17:57:27 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 15:47:02 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		eating(t_ph *ph)
 {
-	if (!ph->last_meal_time)
+	if (ph->is_died)
 	{
 		pthread_mutex_unlock(ph->last_meal_mutex);
 		return (1);
@@ -34,12 +34,11 @@ int		eat_check(t_ph *ph)
 
 	gettimeofday(&current, NULL);
 	pthread_mutex_lock(ph->last_meal_mutex);
-	if (!ph->last_meal_time ||
+	if (ph->is_died ||
 		ft_time(&current) - ft_time(ph->last_meal_time) > ph->info->dead_time)
 	{
-		free(ph->last_meal_time);
+		ph->is_died = 1;
 		message(ph, "died", &current);
-		ph->last_meal_time = NULL;
 	}
 	ret = eating(ph);
 	pthread_mutex_unlock(ph->right_fork->mutex);
@@ -56,7 +55,7 @@ int		eat(t_ph *ph)
 	gettimeofday(&current, NULL);
 	message(ph, "sleeping", &current);
 	ft_usleep(ph->info->sleep_time * 1000);
-	if (!ph->last_meal_time)
+	if (ph->is_died)
 		return (1);
 	gettimeofday(&current, NULL);
 	message(ph, "thinking", &current);

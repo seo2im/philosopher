@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 16:24:38 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/07 16:29:24 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 15:41:22 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ static	void	mutex_locking(t_manager *manager)
 	while (c < manager->info->num_of_ph)
 	{
 		pthread_mutex_lock((*phs)->last_meal_mutex);
-		c += !((*phs)->last_meal_time) ? 1 :
-				!!((*phs)->last_meal_time = NULL) + 0;
+		c += ((*phs)->is_died) ? 1 : !((*phs)->is_died = 1) + 0;
 		pthread_mutex_unlock((*phs)->last_meal_mutex);
 		if (!(phs + 1) && c != manager->info->num_of_ph)
 		{
@@ -54,8 +53,8 @@ int				wait_process(t_manager *manager)
 	while (phs && *phs && !usleep(1000))
 	{
 		c = ((unsigned int)(*phs)->num_of_eat < (unsigned int)num) ? 0 : c + 1;
-		if (!((*phs)->last_meal_time) || !(*(phs + 1)))
-			phs = ((*phs)->last_meal_time && c < manager->info->num_of_ph)
+		if (((*phs)->is_died) || !(*(phs + 1)))
+			phs = (!((*phs)->is_died) && c < manager->info->num_of_ph)
 			? manager->phs : NULL;
 		else
 			phs++;
