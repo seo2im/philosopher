@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 13:52:51 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 15:36:24 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:29:37 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct		s_ph
 	struct timeval	*last_meal_time;
 	pthread_mutex_t	*message;
 	int				num_of_eat;
-	int				is_died;
 }					t_ph;
 
 typedef struct		s_manager

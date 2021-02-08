@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 22:29:09 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 15:36:37 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/07 17:56:05 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static t_ph		*init_ph(t_manager *manager, int i)
 	if (!(ph = malloc(sizeof(t_ph))))
 		return (NULL);
 	ph->id = i;
-	ph->is_died = 0;
 	ph->info = NULL;
 	ph->thread = NULL;
 	ph->num_of_eat = 0;
