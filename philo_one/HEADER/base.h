@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:56:22 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 19:41:13 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 20:50:09 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <pthread.h>
 # include <sys/time.h>
+# include <stdio.h>
 
 # define ERROR 0
 # define SUCCESS 1

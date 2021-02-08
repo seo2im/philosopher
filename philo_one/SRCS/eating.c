@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 19:02:12 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 19:47:28 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 21:21:56 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 void	take_fork(t_ph *ph)
 {
 	pthread_mutex_lock(&ph->fork_mutex[ph->left_fork]);
-	message(ph, "take fork");
+	message(ph, "take fork", FALSE);
 	pthread_mutex_lock(&ph->fork_mutex[ph->right_fork]);
-	message(ph, "take fork");
+	message(ph, "take fork", FALSE);
 }
 
 void	putoff_fork(t_ph *ph)
 {
-	message(ph, "is sleep");
-	pthread_mutex_lock(&ph->fork_mutex[ph->left_fork]);
-	pthread_mutex_lock(&ph->fork_mutex[ph->right_fork]);
+	message(ph, "is sleep", FALSE);
+	pthread_mutex_unlock(&ph->fork_mutex[ph->left_fork]);
+	pthread_mutex_unlock(&ph->fork_mutex[ph->right_fork]);
 	ft_usleep(ph->info->time_sleep * 1000);
 }
 
 void	eat(t_ph *ph)
 {
 	pthread_mutex_lock(&ph->ph_mutex);
-	ph->is_eat = 1;
+	ph->is_eat = TRUE;
 	ph->time_last_meal = ft_gettime();
 	ph->time_dead_limit = ph->time_last_meal + ph->info->start_time;
-	message(ph, "is eating");
+	message(ph, "is eating", FALSE);
 	ft_usleep(ph->info->time_eat * 1000);
 	ph->num_eat++;
 	ph->is_eat = FALSE;

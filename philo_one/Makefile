@@ -10,7 +10,8 @@ SRC = ./main.c \
         ./UTILS/ft_write.c \
         ./UTILS/ft_write_n.c \
         ./UTILS/ft_gettime.c \
-        ./UTILS/ft_usleep.c 
+        ./UTILS/ft_usleep.c \
+        ./UTILS/ft_itoa.c 
 
 OBJS 		=	$(SRC:.c=.o)
 FLAG = -Wall -Werror -Wextra
