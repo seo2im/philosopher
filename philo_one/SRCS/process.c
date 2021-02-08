@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:23:32 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 23:17:10 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 23:20:53 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	*routine(void *argv)
 	return ((void *)0);
 }
 
-int		process(t_manager *manager)
+int			process(t_manager *manager)
 {
 	int			i;
 	pthread_t	tid;
