@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 17:26:31 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 21:59:04 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 22:11:08 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,15 @@ static int	setup_mutex(t_manager *manager)
 {
 	int	i;
 
-	pthread_mutex_init(&manager->msg_mutex, NULL);
-	pthread_mutex_init(&manager->dead_mutex, NULL);
-	pthread_mutex_lock(&manager->dead_mutex);
-	if (!(manager->fork_mutex
+	pthread_mutex_init(&manager->info->msg_mutex, NULL);
+	pthread_mutex_init(&manager->info->dead_mutex, NULL);
+	pthread_mutex_lock(&manager->info->dead_mutex);
+	if (!(manager->info->fork_mutex
 		= malloc(sizeof(pthread_mutex_t) * manager->info->num_of_ph)))
 		return (ERROR);
 	i = -1;
-	while (manager->phs[++i])
-	{
-		manager->phs[i]->fork_mutex = manager->fork_mutex;
-		manager->phs[i]->msg_mutex = manager->msg_mutex;
-		manager->phs[i]->dead_mutex = manager->dead_mutex;
-	}
-	i = -1;
 	while (++i < manager->info->num_of_ph)
-		pthread_mutex_init(&manager->fork_mutex[i], NULL);
+		pthread_mutex_init(&manager->info->fork_mutex[i], NULL);
 	return (SUCCESS);
 }
 
@@ -86,7 +79,6 @@ int			setup_manager(t_manager *manager, char *argv[], int argc)
 {
 	manager->info = NULL;
 	manager->phs = NULL;
-	manager->fork_mutex = NULL;
 	if (!setup_info(manager, argv, argc))
 		return (ERROR);
 	if (!setup_ph(manager))

@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:54:49 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 22:03:57 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 22:11:41 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	message(t_ph *ph, char *str, int is_die)
 	char		*time_str;
 	char		*id_str;
 
-	pthread_mutex_lock(&ph->msg_mutex);
+	pthread_mutex_lock(&ph->info->msg_mutex);
 	if (!done)
 	{
 		time_str = ft_itoa(ft_gettime() - ph->info->start_time);
@@ -33,5 +33,5 @@ void	message(t_ph *ph, char *str, int is_die)
 		free(id_str);
 		free(time_str);
 	}
-	pthread_mutex_unlock(&ph->msg_mutex);
+	pthread_mutex_unlock(&ph->info->msg_mutex);
 }

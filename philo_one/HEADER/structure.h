@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:58:22 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 18:18:48 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 22:08:04 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ typedef struct		s_info
 	long long		time_sleep;
 	int				num_eat;
 	long long		start_time;
+	pthread_mutex_t	*fork_mutex;
+	pthread_mutex_t	msg_mutex;
+	pthread_mutex_t	dead_mutex;
 }					t_info;
 
 typedef struct		s_ph
@@ -36,18 +39,12 @@ typedef struct		s_ph
 	t_info			*info;
 	pthread_mutex_t	ph_mutex;
 	pthread_mutex_t eat_mutex;
-	pthread_mutex_t	*fork_mutex;
-	pthread_mutex_t	msg_mutex;
-	pthread_mutex_t	dead_mutex;
 }					t_ph;
 
 typedef struct		s_manager
 {
 	t_info			*info;
 	t_ph			**phs;
-	pthread_mutex_t	*fork_mutex;
-	pthread_mutex_t	msg_mutex;
-	pthread_mutex_t	dead_mutex;
 }					t_manager;
 
 

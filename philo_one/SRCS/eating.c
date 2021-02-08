@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 19:02:12 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 23:00:56 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 23:02:07 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	take_fork(t_ph *ph)
 {
-	pthread_mutex_lock(&ph->fork_mutex[ph->left_fork]);
+	pthread_mutex_lock(&ph->info->fork_mutex[ph->left_fork]);
 	message(ph, "take fork", FALSE);
-	pthread_mutex_lock(&ph->fork_mutex[ph->right_fork]);
+	pthread_mutex_lock(&ph->info->fork_mutex[ph->right_fork]);
 	message(ph, "take fork", FALSE);
 }
 
 void	putoff_fork(t_ph *ph)
 {
 	message(ph, "is sleep", FALSE);
-	pthread_mutex_unlock(&ph->fork_mutex[ph->left_fork]);
-	pthread_mutex_unlock(&ph->fork_mutex[ph->right_fork]);
+	pthread_mutex_unlock(&ph->info->fork_mutex[ph->left_fork]);
+	pthread_mutex_unlock(&ph->info->fork_mutex[ph->right_fork]);
 	ft_usleep(ph->info->time_sleep * 1000);
 }
 
