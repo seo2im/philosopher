@@ -6,12 +6,12 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:55:02 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 20:05:15 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 23:23:03 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_ONE
-# define PHILO_ONE
+#ifndef PHILO_ONE_H
+# define PHILO_ONE_H
 # include "base.h"
 # include "utils.h"
 # include "structure.h"

@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 20:10:57 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 23:20:36 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/08 23:22:32 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static void	set_word(char *str, int n, int pos, int sign)
 
 char		*ft_itoa(int n)
 {
-	char *str;
-	int len;
-	int sign;
+	char	*str;
+	int		len;
+	int		sign;
 
 	sign = n >= 0 ? 1 : -1;
 	len = word_len(n, sign);
