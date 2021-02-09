@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:58:22 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 14:21:28 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 17:58:59 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ typedef struct		s_info
 	long long		time_sleep;
 	int				num_eat;
 	long long		start_time;
-	
 	int				cur_eat_count;
-
 	sem_t			*fork_sem;
 	sem_t			*msg_sem;
 	sem_t			*dead_sem;

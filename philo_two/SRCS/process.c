@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:23:32 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 13:59:03 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 17:57:58 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,9 @@ static void	*routine(void *argv)
 	pthread_detach(tid);
 	while (TRUE)
 	{
-		take_fork(ph);	
+		take_fork(ph);
 		eat(ph);
 		putoff_fork(ph);
-		
 		message(ph, "is Thinking", FALSE);
 	}
 	return ((void *)0);

@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 17:26:31 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 23:21:38 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 14:53:50 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	setup_mutex(t_manager *manager)
 {
 	int	i;
 
-	pthread_mutex_init(&manager->info->msg_mutex, NULL);
+	pthread_mutex_init(&manager->info->msg_mutex, NULL);	
 	pthread_mutex_init(&manager->info->dead_mutex, NULL);
 	pthread_mutex_lock(&manager->info->dead_mutex);
 	if (!(manager->info->fork_mutex =
