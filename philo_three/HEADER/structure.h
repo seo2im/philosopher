@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:58:22 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 18:00:23 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 18:01:49 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct		s_ph
 	int				num_eat;
 	t_info			*info;
 	sem_t			*ph_sem;
-	sem_t 			*eat_sem;
+	sem_t			*eat_sem;
 }					t_ph;
 
 typedef struct		s_manager
