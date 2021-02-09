@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:23:32 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 17:59:51 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 18:18:29 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ static void	*check(void *argv)
 	}
 }
 
-static void	*routine(t_ph *ph)
+static int	routine(t_ph *ph)
 {
 	pthread_t	tid;
 
 	ph->time_last_meal = ft_gettime();
 	ph->time_dead_limit = ph->time_last_meal + ph->info->time_dead;
 	if (pthread_create(&tid, NULL, &check, ph))
-		return ((void *)1);
+		return (1);
 	pthread_detach(tid);
 	while (TRUE)
 	{
@@ -67,7 +67,7 @@ static void	*routine(t_ph *ph)
 		putoff_fork(ph);
 		message(ph, "is Thinking", FALSE);
 	}
-	return ((void *)0);
+	return (0);
 }
 
 int			process(t_manager *manager)
