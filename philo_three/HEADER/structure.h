@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:58:22 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 14:21:28 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 14:46:48 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct		s_info
 	long long		start_time;
 	
 	int				cur_eat_count;
-
+	
 	sem_t			*fork_sem;
 	sem_t			*msg_sem;
 	sem_t			*dead_sem;
@@ -32,6 +32,7 @@ typedef struct		s_info
 
 typedef struct		s_ph
 {
+	pid_t			pid;
 	int				id;
 	int				is_eat;
 	long long		time_last_meal;
