@@ -22,7 +22,7 @@ $(NAME) : $(OBJS)
 	gcc $(FLAG) -o $(NAME) $(OBJS) $(HEADER) -lpthread
 
 $(OBJS) : %.o : %.c
-	gcc $(FLAG) -c $< -o $@ $(HEADER) -lpthread
+	gcc $(FLAG) -c $< -o $@ $(HEADER)
 
 clean :
 	rm -rf $(OBJS)

@@ -19,7 +19,7 @@ FLAG = -Wall -Werror -Wextra
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	gcc $(FLAG) -o $(NAME) $(OBJS) $(HEADER)
+	gcc $(FLAG) -o $(NAME) $(OBJS) $(HEADER) -lpthread
 
 $(OBJS) : %.o : %.c
 	gcc $(FLAG) -c $< -o $@ $(HEADER)

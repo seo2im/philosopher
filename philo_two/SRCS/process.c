@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:23:32 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 19:37:51 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/10 00:26:42 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	*eat_check(void *argv)
 			sem_wait(manager->phs[i].eat_sem);
 		outs++;
 	}
+	message(&manager->phs[0], "Process Over", FALSE, TRUE);
 	sem_post(manager->info->dead_sem);
 	return ((void *)0);
 }
@@ -41,7 +42,7 @@ static void	*check(void *argv)
 		sem_wait(ph->ph_sem);
 		if (!ph->is_eat && ft_gettime() > ph->time_dead_limit)
 		{
-			message(ph, "is died", TRUE);
+			message(ph, "is died", TRUE, FALSE);
 			sem_post(ph->ph_sem);
 			sem_post(ph->info->dead_sem);
 			return ((void *)0);
@@ -67,7 +68,7 @@ static void	*routine(void *argv)
 		take_fork(ph);
 		eat(ph);
 		putoff_fork(ph);
-		message(ph, "is Thinking", FALSE);
+		message(ph, "is Thinking", FALSE, FALSE);
 	}
 	return ((void *)0);
 }

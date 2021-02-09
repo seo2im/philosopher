@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:54:20 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 23:54:53 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/10 00:04:50 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,8 @@
 
 int	clear(t_manager *manager)
 {
-	int	num_of_ph;
-	int	i;
-
-	num_of_ph = manager->info->num_eat;
-	i = -1;
-	while (++i < num_of_ph)
-		;//pthread_mutex_destroy(&manager->info->fork_mutex[i]);
 	free(manager->info->fork_mutex);
-	i = -1;
-	while (++i < num_of_ph)
-	{
-		;//pthread_mutex_destroy(&manager->phs[i].ph_mutex);
-		//pthread_mutex_destroy(&manager->phs[i].eat_mutex);
-	}
 	free(manager->phs);
-	//pthread_mutex_destroy(&manager->info->msg_mutex);
-	//pthread_mutex_destroy(&manager->info->dead_mutex);
 	free(manager->info);
 	return (0);
 }

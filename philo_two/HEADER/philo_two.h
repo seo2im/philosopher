@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:55:02 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 13:13:52 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/10 00:26:54 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int		process(t_manager *manager);
 void	putoff_fork(t_ph *ph);
 void	take_fork(t_ph *ph);
 void	eat(t_ph *ph);
-void	message(t_ph *ph, char *str, int is_die);
+void	message(t_ph *ph, char *str, int is_die, int is_over);
 
 #endif

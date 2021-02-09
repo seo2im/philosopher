@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 19:02:12 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 14:46:02 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/10 00:32:59 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void	take_fork(t_ph *ph)
 {
 	sem_wait(ph->info->fork_sem);
-	message(ph, "take fork", FALSE);
+	message(ph, "take fork", FALSE, FALSE);
 	sem_wait(ph->info->fork_sem);
-	message(ph, "take fork", FALSE);
+	message(ph, "take fork", FALSE, FALSE);
 }
 
 void	putoff_fork(t_ph *ph)
 {
-	message(ph, "is sleep", FALSE);
+	message(ph, "is sleep", FALSE, FALSE);
 	sem_post(ph->info->fork_sem);
 	sem_post(ph->info->fork_sem);
 	ft_usleep(ph->info->time_sleep * 1000);
@@ -34,7 +34,7 @@ void	eat(t_ph *ph)
 	ph->is_eat = TRUE;
 	ph->time_last_meal = ft_gettime();
 	ph->time_dead_limit = ph->time_last_meal + ph->info->time_dead;
-	message(ph, "is eating", FALSE);
+	message(ph, "is eating", FALSE, FALSE);
 	ft_usleep(ph->info->time_eat * 1000);
 	ph->num_eat++;
 	ph->is_eat = FALSE;
