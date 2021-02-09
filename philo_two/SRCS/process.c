@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:23:32 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 18:18:05 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:37:51 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	*eat_check(void *argv)
 	{
 		i = -1;
 		while (++i < manager->info->num_of_ph)
-			sem_wait(manager->phs[i]->eat_sem);
+			sem_wait(manager->phs[i].eat_sem);
 		outs++;
 	}
 	sem_post(manager->info->dead_sem);
@@ -85,9 +85,9 @@ int			process(t_manager *manager)
 		pthread_detach(tid);
 	}
 	i = -1;
-	while (manager->phs[++i])
+	while (++i < manager->info->num_of_ph)
 	{
-		if (pthread_create(&tid, NULL, &routine, manager->phs[i]))
+		if (pthread_create(&tid, NULL, &routine, &manager->phs[i]))
 			return (ERROR);
 		pthread_detach(tid);
 		usleep(100);

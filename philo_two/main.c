@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:54:20 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 18:12:06 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:41:01 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ int	clear(t_manager *manager)
 	i = -1;
 	while (++i < num_of_ph)
 	{
-		sem_close(manager->phs[i]->ph_sem);
-		sem_close(manager->phs[i]->eat_sem);
-		free(manager->phs[i]);
+		sem_close(manager->phs[i].ph_sem);
+		sem_close(manager->phs[i].eat_sem);
 	}
 	free(manager->phs);
 	return (0);
