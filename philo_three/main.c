@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:54:20 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 14:34:45 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 18:16:28 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	clear(t_manager *manager)
 	int	i;
 
 	num_of_ph = manager->info->num_eat;
-	sem_close(&manager->info->fork_sem);
-	sem_close(&manager->info->msg_sem);
-	sem_close(&manager->info->dead_sem);
+	sem_close(manager->info->fork_sem);
+	sem_close(manager->info->msg_sem);
+	sem_close(manager->info->dead_sem);
 	free(manager->info);
 	i = -1;
 	while (++i < num_of_ph)
