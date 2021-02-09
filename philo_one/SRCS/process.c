@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:23:32 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 19:46:32 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:52:10 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	*eat_check(void *argv)
 			pthread_mutex_lock(&manager->phs[i].eat_mutex);
 		outs++;
 	}
-	pthread_mutex_unlock(&manager->info->dead_mutex);
 	message(&manager->phs[0], "Process Over", FALSE, TRUE);
+	pthread_mutex_unlock(&manager->info->dead_mutex);
 	return ((void *)0);
 }
 

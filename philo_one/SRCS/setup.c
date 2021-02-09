@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 17:26:31 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 19:28:18 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:51:09 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	setup_ph(t_manager *manager)
 	int		i;
 
 	if (!(manager->phs =
-		malloc(sizeof(*(manager->phs)) * manager->info->num_of_ph + 1)))
+		malloc(sizeof(*(manager->phs)) * manager->info->num_of_ph)))
 		return (ERROR);
 	i = -1;
 	while (++i < manager->info->num_of_ph)
