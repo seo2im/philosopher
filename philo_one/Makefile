@@ -22,7 +22,7 @@ $(NAME) : $(OBJS)
 	gcc $(FLAG) -o $(NAME) $(OBJS) $(HEADER)
 
 $(OBJS) : %.o : %.c
-	gcc  $(FLAG) $< -o $@ $(HEADER)
+	gcc $(FLAG) -c $< -o $@ $(HEADER)
 
 clean :
 	rm -rf $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:30:04 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 18:30:50 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 18:07:36 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_usleep(long long n)
 	{
 		usleep(50);
 		gettimeofday(&step, NULL);
-		if ((size_t)(((size_t)(step.tv_sec - start.tv_sec)) * 1000000 +
-((size_t)(step.tv_usec - start.tv_usec))) > n)
+		if ((long long)(((long long)(step.tv_sec - start.tv_sec)) * 1000000 +
+((long long)(step.tv_usec - start.tv_usec))) > n)
 			break ;
 	}
 }
