@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:23:32 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 19:29:33 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:46:32 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static void	*eat_check(void *argv)
 		outs++;
 	}
 	pthread_mutex_unlock(&manager->info->dead_mutex);
+	message(&manager->phs[0], "Process Over", FALSE, TRUE);
 	return ((void *)0);
 }
 
@@ -41,7 +42,7 @@ static void	*check(void *argv)
 		pthread_mutex_lock(&ph->ph_mutex);
 		if (!ph->is_eat && ft_gettime() > ph->time_dead_limit)
 		{
-			message(ph, "is died", TRUE);
+			message(ph, "is died", TRUE, FALSE);
 			pthread_mutex_unlock(&ph->ph_mutex);
 			pthread_mutex_unlock(&ph->info->dead_mutex);
 			return ((void *)0);
@@ -67,7 +68,7 @@ static void	*routine(void *argv)
 		take_fork(ph);
 		eat(ph);
 		putoff_fork(ph);
-		message(ph, "is Thinking", FALSE);
+		message(ph, "is Thinking", FALSE, FALSE);
 	}
 	return ((void *)0);
 }
