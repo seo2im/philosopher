@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:58:22 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 23:20:08 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:16:52 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct		s_ph
 typedef struct		s_manager
 {
 	t_info			*info;
-	t_ph			**phs;
+	t_ph			*phs;
 }					t_manager;
 
 #endif

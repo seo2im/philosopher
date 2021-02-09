@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:23:32 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/08 23:20:53 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:29:33 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	*eat_check(void *argv)
 	{
 		i = -1;
 		while (++i < manager->info->num_of_ph)
-			pthread_mutex_lock(&manager->phs[i]->eat_mutex);
+			pthread_mutex_lock(&manager->phs[i].eat_mutex);
 		outs++;
 	}
 	pthread_mutex_unlock(&manager->info->dead_mutex);
@@ -85,9 +85,9 @@ int			process(t_manager *manager)
 		pthread_detach(tid);
 	}
 	i = -1;
-	while (manager->phs[++i])
+	while (++i < manager->info->num_of_ph)
 	{
-		if (pthread_create(&tid, NULL, &routine, manager->phs[i]))
+		if (pthread_create(&tid, NULL, &routine, &manager->phs[i]))
 			return (ERROR);
 		pthread_detach(tid);
 		usleep(100);
