@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 17:26:31 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/09 19:35:39 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/10 14:31:34 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,20 @@ static int	setup_info(t_manager *manager, char *argv[], int argc)
 	return (SUCCESS);
 }
 
+static void	setup_ph_1(t_manager *manager, int i)
+{
+	manager->phs[i].id = i;
+	manager->phs[i].is_eat = FALSE;
+	manager->phs[i].left_fork = i;
+	manager->phs[i].right_fork = (i + 1) % manager->info->num_of_ph;
+	manager->phs[i].num_eat = 0;
+	manager->phs[i].info = manager->info;
+}
+
 static int	setup_ph(t_manager *manager)
 {
 	int		i;
+	char	*name;
 
 	if (!(manager->phs =
 	malloc(sizeof(*(manager->phs)) * (manager->info->num_of_ph + 1))))
@@ -44,18 +55,17 @@ static int	setup_ph(t_manager *manager)
 	i = -1;
 	while (++i < manager->info->num_of_ph)
 	{
-		manager->phs[i].id = i;
-		manager->phs[i].is_eat = FALSE;
-		manager->phs[i].left_fork = i;
-		manager->phs[i].right_fork = (i + 1) % manager->info->num_of_ph;
-		manager->phs[i].num_eat = 0;
-		manager->phs[i].info = manager->info;
-		sem_unlink("ph_sem");
+		setup_ph_1(manager, i);
+		name = sem_name("ph_sem", i);
+		sem_unlink(name);
 		manager->phs[i].ph_sem =
-			sem_open("ph_sem", O_CREAT | O_EXCL, 0644, 1);
-		sem_unlink("eat_sem");
+			sem_open(name, O_CREAT | O_EXCL, 0644, 1);
+		free(name);
+		name = sem_name("eat_sem", i);
+		sem_unlink(name);
 		manager->phs[i].eat_sem =
-			sem_open("eat_sem", O_CREAT | O_EXCL, 0644, 0);
+			sem_open(name, O_CREAT | O_EXCL, 0644, 0);
+		free(name);
 	}
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:54:49 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/10 00:51:46 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/10 14:32:19 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	message(t_ph *ph, char *str, int is_die, int is_over)
 			ft_write(1, id_str);
 		ft_write(1, " ");
 		ft_write_n(1, str);
-		if (is_die)
+		if (is_die || is_over)
 			done = 1;
 		free(id_str);
 		free(time_str);

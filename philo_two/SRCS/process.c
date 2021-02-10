@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:23:32 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/10 00:26:42 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/10 14:03:27 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,14 @@ static void	*eat_check(void *argv)
 {
 	t_manager	*manager;
 	int			i;
-	int			outs;
 
 	manager = (t_manager *)argv;
-	outs = 0;
-	while (outs < manager->info->num_eat)
+	while (manager->info->cur_eat_count < manager->info->num_eat)
 	{
 		i = -1;
 		while (++i < manager->info->num_of_ph)
 			sem_wait(manager->phs[i].eat_sem);
-		outs++;
+		manager->info->cur_eat_count++;
 	}
 	message(&manager->phs[0], "Process Over", FALSE, TRUE);
 	sem_post(manager->info->dead_sem);

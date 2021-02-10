@@ -6,7 +6,7 @@
 /*   By: seolim <seolim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:54:20 by seolim            #+#    #+#             */
-/*   Updated: 2021/02/10 00:06:34 by seolim           ###   ########.fr       */
+/*   Updated: 2021/02/10 14:17:33 by seolim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,22 @@
 
 int	clear(t_manager *manager)
 {
+	char	*name;
+	int		i;
+
+	sem_unlink("fork_sem");
+	sem_unlink("msg_sem");
+	sem_unlink("dead_sem");
+	i = -1;
+	while (++i < manager->info->num_of_ph)
+	{
+		name = sem_name("ph_sem", i);
+		sem_unlink(name);
+		free(name);
+		name = sem_name("eat_sem", i);
+		sem_unlink(name);
+		free(name);
+	}
 	free(manager->info);
 	free(manager->phs);
 	return (0);
